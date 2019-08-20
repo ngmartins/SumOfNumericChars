@@ -3,8 +3,25 @@ package pt.nmartins.app;
 
 import java.util.ArrayList;
 
-public class App
-{
+public class App{
+
+
+
+    public static void main(String[] args) {
+
+        for (String arg : args) {
+
+            int a = sumAllCharsInStringLoopImpl(arg);
+            int b = sumAllCharsInStringRecursiveImpl(arg, 0);
+
+            System.out.println("For string; \"" + arg + "\" the results are: ");
+            System.out.println("\t With loop: " + a);
+            System.out.println("\t Without loop: " + b + "\n");
+
+        }
+
+    }
+
 
 
     public static final int SHIFT = 48;
@@ -47,12 +64,14 @@ public class App
 
     }
 
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
