@@ -1,16 +1,17 @@
 package pt.nmartins.app;
 
 
+import java.util.ArrayList;
 
-public class App 
+public class App
 {
 
 
     public static final int SHIFT = 48;
 
-    public static int summAllCharsInStringLoopImpl(String s )
+    public static int sumAllCharsInStringLoopImpl(String s )
     {
-        int charSumm=0;
+        int charSum=0;
 
         final char[] chars = s.toCharArray();
 
@@ -19,30 +20,39 @@ public class App
             int d = (int) c;
 
             if (d>= SHIFT && d<=SHIFT+9){
-                charSumm+=d-SHIFT;
+                charSum+=d-SHIFT;
             }
         }
-
-        System.out.println( "For the string " + s + " the result is: " + charSumm );
-        return charSumm;
+        return charSum;
     }
 
 
-    public static int summAllCharsInStringRecursiveImpl(String s, int charSumm)
+    public static int sumAllCharsInStringRecursiveImpl(String s, int charSum)
     {
+        if(s.isEmpty()){
+            return charSum;
+        }
 
         char[] chars = s.toCharArray();
         int d = chars[chars.length-1];
 
        if (d>= SHIFT && d<=SHIFT+9){
-            charSumm+=d-SHIFT;
+            charSum+=d-SHIFT;
         }
 
         if (chars.length==1) {
-            return charSumm;
+            return charSum;
         }
-        return summAllCharsInStringRecursiveImpl(s.substring(0,s.length()-1), charSumm);
+        return sumAllCharsInStringRecursiveImpl(s.substring(0,s.length()-1), charSum);
 
     }
+
+
+
+
+
+
+
+
 
 }
